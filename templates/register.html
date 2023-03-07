@@ -17,11 +17,20 @@
         <input type="submit" value="注册">
     </form>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 
     {% if error %}
         <p>{{error}}</p>
     {% endif %}
 
-    <a href="/">返回登录页面</a>
+    <a href="/">返回主页</a>
 </body>
 </html>
